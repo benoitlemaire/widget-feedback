@@ -112,15 +112,16 @@ export default {
           const img = new Image();
           img.src = imageObject;
 
-          this.canvas.width = this.width;
-          this.canvas.height = this.height;
+          // this.canvas.width = this.width;
+          // this.canvas.height = this.height;
 
           img.onload = () => {
             // TODO : Remove after tests if canvas's ratio is ok
-            const size = this.calculateAspectRatioFit(this.width, this.height, this.canvas.width, this.canvas.height);
+            // const size = this.calculateAspectRatioFit(this.width, this.height, this.canvas.width, this.canvas.height);
             this.ctx.drawImage(
               img, this.left, this.top, this.width, this.height,
-              0, 0, size.width, size.height,
+              // 0, 0, size.width, size.height,
+              0, 0, this.canvas.width, this.canvas.height,
             );
 
             // TODO : Envoyer cette image au serveur uniquement quand on submit
